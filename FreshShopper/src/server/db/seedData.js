@@ -863,8 +863,118 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Chicken Breast",
+        category: "protein",
+        description: "Something tasty to peck at.",
+        price: 13.20,
+        nutritionalInfo:
+            {
+                caloriesPerServing: 110,
+                servingsPerContainer: 20,
+                servingSize: "100g",
+                totalFat: ["2.5g", "3.85%"],
+                cholesterol: ["55mg", "18.33%"],
+                sodium: ["230mg", "9.58%"],
+                totalCarb: ["0g", "0%"],
+                protein: ["23g", "0%"],
+                nutritionRating: 79,
+                ingredients: "Chicken Breasts, 15% Solution That Contains Chicken Broth, Carrageenan and Salt",
+                allergenInfo: "Free from Crustaceans and their derivates,Sesame Seeds and their derivates,Wheat and Their Derivatives,Eggs and their derivates,Fish and their derivates,Soybean and its Derivatives,Milk and its derivates,Tree Nuts and Their Derivatives,Peanuts and their derivates."
+            },
+        quantity: 20,
+        image: []
+    },
+    {
+        name: "Eggs",
+        category: "protein",
+        description: "Unforunately, we do not currently have eggs in stock of the green variety, only the standard color. Check back again later!",
+        price: 1.99,
+        nutritionalInfo:
+            {
+                caloriesPerServing: 70,
+                servingsPerContainer: 12,
+                servingSize: "1 egg (50 g)",
+                totalFat: ["5g", "6.41%"],
+                cholesterol: ["185mg", "61.67%"],
+                sodium: ["70mg", "3.04%"],
+                totalCarb: ["0g", "0%"],
+                protein: ["6g", "0%"],
+                nutritionRating: 84,
+                ingredients: "Egg",
+                allergenInfo: "Contains Eggs and Their Derivatives."
+            },
+        quantity: 20,
+        image: []
+    },
+    {
+        name: "Steak",
+        category: "protein",
+        description: "Laypeople call it steak, Fresh Shopper calls it the Signature Ron Swanson.",
+        price: 15.75,
+        nutritionalInfo:
+            {
+                caloriesPerServing: 280,
+                servingsPerContainer: "Approx. 2.5",
+                servingSize: "4 oz (112 g)",
+                totalFat: ["22g", "33.85%"],
+                cholesterol: ["75mg", "25%"],
+                sodium: ["55mg", "2.29%"],
+                totalCarb: ["0g", "0%"],
+                protein: ["21g", "0%"],
+                nutritionRating: 64,
+                ingredients: "Beef",
+                allergenInfo: noAllergen
+            },
+        quantity: 20,
+        image: []
+    },
+    {
+        name: "Pork Chops",
+        category: "protein",
+        description: "",
+        price: 5.99,
+        nutritionalInfo:
+            {
+                caloriesPerServing: 180,
+                servingsPerContainer: 6,
+                servingSize: "4 oz (113 g)",
+                totalFat: ["8g", "10%"],
+                cholesterol: ["75mg", "25%"],
+                sodium: ["55mg", "2%"],
+                totalCarb: ["0g", "0%"],
+                protein: ["24g", "0%"],
+                nutritionRating: 76,
+                ingredients: "Pork",
+                allergenInfo: noAllergen
+            },
+        quantity: 20,
+        image: []
+    },
+    {
+        name: "Ground Beef",
+        category: "protein",
+        description: "Just be sure nobody at the party gets the ground chuck confused with your friend Chuck!!",
+        price: 15.99,
+        nutritionalInfo:
+            {
+                caloriesPerServing: 290,
+                servingsPerContainer: 12,
+                servingSize: "1/4 lb",
+                totalFat: ["23g", "35%"],
+                cholesterol: ["80mg", "27%"],
+                sodium: ["075mg", "3%"],
+                totalCarb: ["0g", "0%"],
+                protein: ["19g", "0%"],
+                nutritionRating: 63,
+                ingredients: "Ground Beef",
+                allergenInfo: noAllergen
+            },
+        quantity: 20,
+        image: []
+    },
+    {
+        name: "Turkey",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -885,8 +995,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Ham",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -907,8 +1017,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Bacon",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -929,8 +1039,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Sausage",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -951,8 +1061,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Salami",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -973,8 +1083,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Lamb",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -995,8 +1105,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Veal",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -1017,8 +1127,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Bison",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -1039,8 +1149,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Fish",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -1061,8 +1171,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Duck",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -1083,8 +1193,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Goose",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -1105,8 +1215,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Lobster",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -1127,8 +1237,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Oysters",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -1149,8 +1259,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Crab",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
@@ -1171,118 +1281,8 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
-        description: "",
-        price: "",
-        nutritionalInfo:
-            {
-                caloriesPerServing: "",
-                servingsPerContainer: "",
-                servingSize: "",
-                totalFat: ["0g", "0%"],
-                cholesterol: ["0g", "0%"],
-                sodium: ["0g", "0%"],
-                totalCarb: ["0g", "0%"],
-                protein: ["0g", "0%"],
-                nutritionRating: "",
-                ingredients: [],
-                allergenInfo: ""
-            },
-            quantity: 20,
-        image: []
-    },
-    {
-        name: "",
-        category: "",
-        description: "",
-        price: "",
-        nutritionalInfo:
-            {
-                caloriesPerServing: "",
-                servingsPerContainer: "",
-                servingSize: "",
-                totalFat: ["0g", "0%"],
-                cholesterol: ["0g", "0%"],
-                sodium: ["0g", "0%"],
-                totalCarb: ["0g", "0%"],
-                protein: ["0g", "0%"],
-                nutritionRating: "",
-                ingredients: [],
-                allergenInfo: ""
-            },
-            quantity: 20,
-        image: []
-    },
-    {
-        name: "",
-        category: "",
-        description: "",
-        price: "",
-        nutritionalInfo:
-            {
-                caloriesPerServing: "",
-                servingsPerContainer: "",
-                servingSize: "",
-                totalFat: ["0g", "0%"],
-                cholesterol: ["0g", "0%"],
-                sodium: ["0g", "0%"],
-                totalCarb: ["0g", "0%"],
-                protein: ["0g", "0%"],
-                nutritionRating: "",
-                ingredients: [],
-                allergenInfo: ""
-            },
-            quantity: 20,
-        image: []
-    },
-    {
-        name: "",
-        category: "",
-        description: "",
-        price: "",
-        nutritionalInfo:
-            {
-                caloriesPerServing: "",
-                servingsPerContainer: "",
-                servingSize: "",
-                totalFat: ["0g", "0%"],
-                cholesterol: ["0g", "0%"],
-                sodium: ["0g", "0%"],
-                totalCarb: ["0g", "0%"],
-                protein: ["0g", "0%"],
-                nutritionRating: "",
-                ingredients: [],
-                allergenInfo: ""
-            },
-            quantity: 20,
-        image: []
-    },
-    {
-        name: "",
-        category: "",
-        description: "",
-        price: "",
-        nutritionalInfo:
-            {
-                caloriesPerServing: "",
-                servingsPerContainer: "",
-                servingSize: "",
-                totalFat: ["0g", "0%"],
-                cholesterol: ["0g", "0%"],
-                sodium: ["0g", "0%"],
-                totalCarb: ["0g", "0%"],
-                protein: ["0g", "0%"],
-                nutritionRating: "",
-                ingredients: [],
-                allergenInfo: ""
-            },
-            quantity: 20,
-        image: []
-    },
-    {
-        name: "",
-        category: "",
+        name: "Scallops",
+        category: "protein",
         description: "",
         price: "",
         nutritionalInfo:
