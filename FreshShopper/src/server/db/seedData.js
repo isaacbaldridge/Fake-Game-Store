@@ -423,25 +423,25 @@ const products = [
         image: []
     },
     {
-        name: "",
-        category: "",
+        name: "Kale",
+        category: "vegetable",
         description: "",
-        price: "",
+        price: 2.99,
         nutritionalInfo:
             {
-                caloriesPerServing: "",
-                servingsPerContainer: "",
-                servingSize: "",
-                totalFat: ["0g", "0%"],
-                cholesterol: ["0g", "0%"],
-                sodium: ["0g", "0%"],
-                totalCarb: ["0g", "0%"],
-                protein: ["0g", "0%"],
-                nutritionRating: "",
-                ingredients: [],
-                allergenInfo: ""
+                caloriesPerServing: 8,
+                servingsPerContainer: "Approx. 4",
+                servingSize: "1 cup (16 g)",
+                totalFat: ["0.15g", "0.19%"],
+                cholesterol: ["0mg", "0%"],
+                sodium: ["6mg", "0.26%"],
+                totalCarb: ["1.4g", "0.51%"],
+                protein: ["0.685g", "0%"],
+                nutritionRating: 97,
+                ingredients: "Kale",
+                allergenInfo: noAllergen
             },
-            quantity: 20,
+        quantity: 20,
         image: []
     },
     {
