@@ -1041,7 +1041,7 @@ const products = [
     {
         name: "Sausage Links",
         category: "protein",
-        description: "",
+        description: "I've never seen sausage stringed together in a chain in real life like I always see in the cartoons...",
         price: 4.99,
         nutritionalInfo:
             {
@@ -1063,21 +1063,21 @@ const products = [
     {
         name: "Salami",
         category: "protein",
-        description: "",
-        price: "",
+        description: "Pro-tip: do NOT code a fake grocery store website when you are hungry.",
+        price: 5.99,
         nutritionalInfo:
             {
-                caloriesPerServing: "",
-                servingsPerContainer: "",
-                servingSize: "",
-                totalFat: ["0g", "0%"],
-                cholesterol: ["0g", "0%"],
-                sodium: ["0g", "0%"],
-                totalCarb: ["0g", "0%"],
-                protein: ["0g", "0%"],
-                nutritionRating: "",
-                ingredients: [],
-                allergenInfo: ""
+                caloriesPerServing: 110,
+                servingsPerContainer: 6,
+                servingSize: "5 slices (28 g)",
+                totalFat: ["9g", "13.85%"],
+                cholesterol: ["30mg", "10%"],
+                sodium: ["430mg", "17.92%"],
+                totalCarb: ["1g", "0.33%"],
+                protein: ["6g", "0%"],
+                nutritionRating: 41,
+                ingredients: "Pork, Beef, Salt, Dextrose, Lactic Acid Starter Culture, Flavorings, Natural Smoked Flavoring, Spice, Sodium Nitrite, BHA, BHT, Citric Acid",
+                allergenInfo: noAllergen
             },
             quantity: 20,
         image: []
