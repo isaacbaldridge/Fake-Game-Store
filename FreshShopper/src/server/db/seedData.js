@@ -1818,6 +1818,10 @@ const orders = [
         fulfilled: true
     },
     {
+        user_id: 2,
+        fulfilled: false
+    },
+    {
         user_id: 3,
         fulfilled: true
     },
@@ -1832,5 +1836,64 @@ const orders = [
 ]
 
 const order_products = [
+    {
+        order_id: 1,
+        product_id: 3,
+        quantity: 2
+    },
+    {
+        order_id: 1,
+        product_id: 4,
+        quantity: 1
+    },
 
+    {
+        order_id: 2,
+        product_id: 13,
+        quantity: 1
+    },
+    {
+        order_id: 2,
+        product_id: 25,
+        quantity: 4
+    },
+
+    {
+        order_id: 3,
+        product_id: 50,
+        quantity: 3
+    },
+    
+    {
+        order_id: 4,
+        product_id: 75,
+        quantity: 1
+    },
+    {
+        order_id: 4,
+        product_id: 79,
+        quantity: 3
+    },
+
+    {
+        order_id: 5,
+        product_id: 1,
+        quantity: 1
+    },
+    {
+        order_id: 5,
+        product_id: 3,
+        quantity: 4
+    },
+    {
+        order_id: 5,
+        product_id: 6,
+        quantity: 3
+    },
+
+    {
+        order_id: 6,
+        product_id: 17,
+        quantity: 2
+    }
 ]
