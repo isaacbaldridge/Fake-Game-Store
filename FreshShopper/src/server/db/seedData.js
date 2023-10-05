@@ -1,4 +1,45 @@
 const users = [
+    {
+        name: "Isaac",
+        email: "Isaac@example.com",
+        password: "AliensExist9",
+        address: 
+        {
+            street: "903 Ocean Ave.",
+            city: "Seattle",
+            state: "Washington",
+            zip: "90210"
+        },
+        isAdmin: true
+
+    },
+    {
+        name: "Abbey",
+        email: "Abbey@example.com",
+        password: "TaylorsVersion7",
+        address: 
+        {
+            street: "821 Uptown Road",
+            city: "Los Angeles",
+            state: "California",
+            zip: "90210"
+        },
+        isAdmin: true
+    },
+    {
+        name: "Emma",
+        email: "Emma@example.com",
+        password: "SillyGoose2",
+        address: 
+        {
+            street: "651 Chilly-Billy Blvd.",
+            city: "Tampa",
+            state: "Florida",
+            zip: "90210"
+        },
+        isAdmin: false
+
+    },
 
 ]
 
@@ -1787,14 +1828,6 @@ const orders = [
     {
         user_id: 3,
         fulfilled: false
-    },
-    {
-        user_id: 4,
-        fulfilled: false
-    },
-    {
-        user_id: 5,
-        fulfilled: true
     }
 ]
 
