@@ -10,6 +10,7 @@ const users = [
             state: "Washington",
             zip: "90210"
         },
+        profilePic: "https://i.ibb.co/pPxtSfb/isaac-profile-pic.jpg",
         isAdmin: true
 
     },
@@ -24,6 +25,7 @@ const users = [
             state: "California",
             zip: "90210"
         },
+        profilePic: "https://i.ibb.co/BKSy7wy/abbey-profile-pic.png",
         isAdmin: true
     },
     {
@@ -37,6 +39,7 @@ const users = [
             state: "Florida",
             zip: "90210"
         },
+        profilePic: "https://i.ibb.co/wdYPqnj/emma-profile-pic.jpg",
         isAdmin: false
 
     },
