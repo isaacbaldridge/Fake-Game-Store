@@ -643,7 +643,14 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/4SzF7Hm/grapes-purple.jpg",
+            "https://i.ibb.co/jvNRF36/grapes-green.jpg",
+            "https://i.ibb.co/KKgBMNK/grapes-red.jpg",
+            "https://i.ibb.co/JBHFSqH/grapes-many.jpg",
+            "https://i.ibb.co/tcv9D4g/grapes-recipe.jpg"
+        ]
     },
     {
         name: "Strawberries",
@@ -665,7 +672,13 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/DQZ1V44/strawberries-1.jpg",
+            "https://i.ibb.co/JRwT4r2/strawberries-2.jpg",
+            "https://i.ibb.co/JRTqQfK/strawberries-3.jpg",
+            "https://i.ibb.co/7kG10Sc/strawberries-4.png"
+        ]
     },
     {
         name: "Watermelon",
@@ -687,7 +700,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/3461xqK/watermelon-1.jpg",
+            "https://i.ibb.co/Hndk4p7/watermelon-2.jpg",
+            "https://i.ibb.co/mTQns86/watermlon-3.jpg"
+        ]
     },
     {
         name: "Avocado",
@@ -753,7 +771,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/z6gqFjW/plum-1.jpg",
+            "https://i.ibb.co/cL4Q4JQ/plum-2.jpg",
+            "https://i.ibb.co/YbNxjsc/plum-3.jpg"
+        ]
     },
     {
         name: "Navel Orange",
@@ -775,7 +798,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "",
+            "",
+            ""
+        ]
     },
     {
         name: "Pineapple",
@@ -797,7 +825,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/SvN7jDQ/pineapple-1.jpg",
+            "https://i.ibb.co/0CBqgT7/pineapple-2.jpg",
+            "https://i.ibb.co/gzQmML5/pineapple-3.jpg"
+        ]
     },
     {
         name: "Fresh Raspberries",
@@ -819,7 +852,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/st7Z66y/raspberries-1.jpg",
+            "https://i.ibb.co/JxwJfvX/raspberries-2.jpg",
+            "https://i.ibb.co/QYJ2fnM/raspberries-3.jpg"
+        ]
     },
     {
         name: "Cherries",
@@ -841,7 +879,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/1ZRQyWz/cherries-1.jpg",
+            "https://i.ibb.co/c2xYS0Q/cherries-2.jpg",
+            "https://i.ibb.co/zSqMzQ0/cherries-3.jpg"
+        ]
     },
     {
         name: "Blackberries",
@@ -885,7 +928,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/DM1njqP/orange-1.jpg",
+            "https://i.ibb.co/rMCr0nH/orange-2.jpg",
+            "https://i.ibb.co/KhdLh3F/orange-3.jpg"
+        ]
     },
     {
         name: "Lemon",
@@ -907,7 +955,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/CvjKCs8/lemon-1.jpg",
+            "https://i.ibb.co/XXZcW8V/lemon-2.jpg",
+            "https://i.ibb.co/Lg8TGzx/lemon-3.jpg"
+        ]
     },
     {
         name: "Lime",
@@ -929,7 +982,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/f9xN7ky/lime-1.jpg",
+            "https://i.ibb.co/M1QD54v/lime-2.jpg",
+            "https://i.ibb.co/1zZ30CK/lime-3.jpg"
+        ]
     },
     {
         name: "Fresh Kiwi",
@@ -951,7 +1009,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/k0rN1zp/kiwi-1.jpg",
+            "https://i.ibb.co/mcL30wK/kiwi-2.jpg",
+            "https://i.ibb.co/xLTJ23T/kiwi-3.jpg"
+        ]
     },
     {
         name: "Grapefruit",
@@ -973,7 +1036,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/6wmMrPr/grapefruit-1.jpg",
+            "https://i.ibb.co/QKHtkjJ/grapefruit-2.jpg",
+            "https://i.ibb.co/tbJJyBV/grapefruit-3.jpg"
+        ]
     },
     {
         name: "Mango",
@@ -1897,7 +1965,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/q7N0Kkn/cantaloupe-1.jpg",
+            "https://i.ibb.co/p6HWkw5/cantaloupe-2.jpg",
+            "https://i.ibb.co/NgRfdTJ/cantaloupe-3.jpg"
+        ]
     }
 
 ]
