@@ -599,7 +599,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/8j9Tv9d/banana-2.jpg",
+            "https://i.ibb.co/D8TtLLg/banana-bread-3.jpg",
+            "https://i.ibb.co/4ZRdnYr/banana-3.jpg"
+        ]
     },
     {
         name: "Fuji Apple",
@@ -621,7 +626,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/wrgxsMy/apple-1.jpg",
+            "https://i.ibb.co/9ws4zYm/apple-2.jpg",
+            "https://i.ibb.co/MZFkfq3/apple-3.jpg"
+        ]
     },
     {
         name: "Grapes",
@@ -727,7 +737,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/ds99q2z/avocado-1.jpg",
+            "https://i.ibb.co/n1G2q9h/avocado-2.jpg",
+            "https://i.ibb.co/8MWGQ0K/avocado-3.jpg"
+        ]
     },
     {
         name: "Blueberries",
@@ -749,7 +764,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/rx0NFrc/blueberries-1.jpg",
+            "https://i.ibb.co/wJ55q9W/blueberries-2.jpg",
+            "https://i.ibb.co/WfqrvMw/blueberries-3.jpg"
+        ]
     },
     {
         name: "Plum",
@@ -906,7 +926,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/54fKHQN/blackberries-1.jpg",
+            "https://i.ibb.co/rZPbbbh/blackberries-2.jpg",
+            "https://i.ibb.co/R2M1Tqb/blackberries-3.jpg"
+        ]
     },
     {
         name: "Bartlett Pear",
