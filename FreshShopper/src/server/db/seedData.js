@@ -820,9 +820,9 @@ const products = [
         quantity: 20,
         image: 
         [
-            "",
-            "",
-            ""
+            "https://i.ibb.co/jy3fWjj/orange-1.jpg",
+            "https://i.ibb.co/YySYNJC/orange-2.jpg",
+            "https://i.ibb.co/ZJRM1yB/orange-3.jpg"
         ]
     },
     {
@@ -1088,7 +1088,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/wpSFG4Y/mango-1.jpg",
+            "https://i.ibb.co/n06S8fx/mango-2.jpg",
+            "https://i.ibb.co/NpVsy1x/mango-3.jpg"
+        ]
     },
     {
         name: "Chicken Breast",
