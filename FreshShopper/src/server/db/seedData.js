@@ -1655,7 +1655,12 @@ const products = [
                 allergenInfo: "Contains Sesame Seeds and their derivates,Wheat and Their Derivatives,Cereals and Their Derivatives,Soybean and its Derivatives. May contain Eggs and their derivates,Milk and its derivates,Tree Nuts and Their Derivatives."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/PjwT55t/bagel-1.jpg",
+            "https://i.ibb.co/QM9YYfT/bagel-2.jpg",
+            "https://i.ibb.co/nkwwJDn/bagel-3.jpg"
+        ]
     },
     {
         name: "Pita chips",
@@ -1704,7 +1709,12 @@ const products = [
                 allergenInfo: "Contains Wheat and Their Derivatives,Soybean and its Derivatives. May contain Milk and its Derivatives."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/GWyvRxR/biscuit-1.jpg",
+            "https://i.ibb.co/vwKncDp/biscuit-2.jpg",
+            "https://i.ibb.co/TBRjfhc/biscuit-3.jpg"
+        ]
     },
     {
         name: "Wheat Bread",
@@ -1753,7 +1763,12 @@ const products = [
                 allergenInfo: "Contains Wheat and Their Derivatives,Cereals and Their Derivatives,Soybean and its Derivatives,Milk and its derivates. May contain Sesame Seeds and their derivates,Eggs and their derivates,Tree Nuts and Their Derivatives."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/ySG3VSy/banana-bread-1.jpg",
+            "https://i.ibb.co/FqMQF7d/banana-bread-2.jpg",
+            "https://i.ibb.co/TBh4hzj/banana-bread-3.jpg"
+        ]
     },
     {
         name: "Sesame Hamburger Buns",
@@ -1856,7 +1871,12 @@ const products = [
                 allergenInfo: "Contains Wheat and Their Derivatives,Eggs and their derivates,Soybean and its Derivatives,Milk and its derivates. May contain Tree Nuts and Their Derivatives,Peanuts and their derivates. Free from Crustaceans and their derivates,Fish and their derivates."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/vw1sfHX/blueberry-muffin-1.jpg",
+            "https://i.ibb.co/G3VHZHw/blueberry-muffin-2.jpg",
+            "https://i.ibb.co/XFgM3pK/blueberry-muffin-3.jpg"
+        ]
     },
     {
         name: "Fresh Chocolate Chocolate Chip Muffins",
@@ -2040,7 +2060,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/XWpNNr1/brown-rice-1.jpg",
+            "https://i.ibb.co/nQkJgLC/brown-rice-2.jpg",
+            "https://i.ibb.co/jkpzfGq/brown-rice-3.jpg"
+        ]
     },
     {
         name: "Chicken Flavor Ramen Noodle Soup",
