@@ -1677,7 +1677,12 @@ const products = [
                 allergenInfo: "Contains Wheat and Their Derivatives."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/pZPn3KM/pita-chips-1.jpg",
+            "https://i.ibb.co/njcMTX1/pita-chips-2.jpg",
+            "https://i.ibb.co/VD0Gw1x/pita-chips-3.jpg"
+        ]
     },
     {
         name: "Buttermilk Biscuit Dough",
@@ -1902,7 +1907,12 @@ const products = [
                 allergenInfo: "Contains Wheat and Their Derivatives,Eggs and their derivates,Soybean and its Derivatives,Milk and its derivates."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/0mVL8Bk/pancakes-1.jpg",
+            "https://i.ibb.co/LZvWDSt/pancakes-2.jpg",
+            "https://i.ibb.co/0Qvv5DX/pancakes-3.jpg"
+        ]
     },
     {
         name: "Microwave Popcorn",
@@ -1924,7 +1934,12 @@ const products = [
                 allergenInfo: "Contains Corn and Its Derivatives."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/SKPTQnx/popcorn-1.jpg",
+            "https://i.ibb.co/SDjP5X7/popcorn-2.jpg",
+            "https://i.ibb.co/dk00MPx/popcorn-3.jpg"
+        ]
     },
     {
         name: "Cheese Ravioli",
@@ -2049,7 +2064,12 @@ const products = [
                 allergenInfo: "Contains Wheat and Their Derivatives,Barley and Barley Products."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/NY0ZTD3/raisin-bran-1.jpg",
+            "https://i.ibb.co/jh79wJD/raisin-bran-2.jpg",
+            "https://i.ibb.co/ryvxVZC/raisin-bran-3.jpg"
+        ]
     },
     {
         name: "Quinoa",
@@ -2071,7 +2091,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/Dt2Gqnn/quinoa-1.jpg",
+            "https://i.ibb.co/0FZ0rQY/quinoa-2.jpg",
+            "https://i.ibb.co/V38PK8K/quinoa-3.jpg"
+        ]
     },
     {
         name: "Soft Flour Tortilla",
