@@ -1,11 +1,15 @@
 const db = require("./client")
 const { createUser } = require("./users")
+const { createProduct } = require("./products")
 const { users, products, orders, order_products } = require("./seedData")
 
 const dropTables = async () => {
     try {
         await db.query(`
-        DROP TABLE IF EXISTS users
+        DROP TABLE IF EXISTS users;
+        `)
+        await db.query(`
+        DROP TABLE IF EXISTS products;
         `)
     } catch (error) {
         console.error("Error dropping users table: ", error)
@@ -62,12 +66,34 @@ const insertUsers = async () => {
     }
 }
 
+const insertProducts = async () => {
+    try {
+        for (const product of products) {
+            await createProduct(
+                {
+                    name: product.name,
+                    category: product.category,
+                    description: product.description,
+                    price: product.price,
+                    nutritionalInfo: product.nutritionalInfo,
+                    quantity: product.quantity,
+                    image: product.image
+                }
+            )
+        }
+        console.log("Successfully inserted products seed data.")
+    } catch (error) {
+        console.error("Error inserting products seed data: ", error)
+    }
+}
+
 const seedDatabase = async () => {
     try {
         db.connect()
         await dropTables()
         await createTables()
         await insertUsers()
+        await insertProducts()
     } catch (error) {
         throw error
     } finally {
