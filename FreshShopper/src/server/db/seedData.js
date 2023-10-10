@@ -1137,7 +1137,12 @@ const products = [
                 allergenInfo: "Contains Eggs and Their Derivatives."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/xznNK62/eggs-1.jpg",
+            "https://i.ibb.co/NNBwmVZ/eggs-2.jpg",
+            "https://i.ibb.co/9sYVwCm/eggs-3.jpg"
+        ]
     },
     {
         name: "Steak",
@@ -1208,7 +1213,12 @@ const products = [
                 allergenInfo: noAllergen
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/71FG5jn/ground-beef-1.jpg",
+            "https://i.ibb.co/HFnd4S9/ground-beef-2.jpg",
+            "https://i.ibb.co/rfg7T6C/ground-beef-3.jpg"
+        ]
     },
     {
         name: "Ground Turkey",
@@ -1453,7 +1463,12 @@ const products = [
                 allergenInfo: "Contains Corn and its derivates"
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/rxQNHpk/duck-1.jpg",
+            "https://i.ibb.co/R6skCg1/duck-2.jpg",
+            "https://i.ibb.co/4YcsDZB/duck-3.jpg"
+        ]
     },
     {
         name: "Goose",
@@ -1475,7 +1490,12 @@ const products = [
                 allergenInfo: "Contains Corn and its derivates"
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/48k31rw/goose-1.jpg",
+            "https://i.ibb.co/bryk6Qr/goose-2.jpg",
+            "https://i.ibb.co/02T0v2W/goose-3.jpg"
+        ]
     },
     {
         name: "Lobster Tail",
@@ -1551,7 +1571,12 @@ const products = [
                 allergenInfo: "Contains Crustaceans and Their Derivatives."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/ft6XFFx/crab-1.jpg",
+            "https://i.ibb.co/K5shWkh/crab-2.jpg",
+            "https://i.ibb.co/7NgC0cr/crab-3.jpg"
+        ]
     },
     {
         name: "Frozen Sea Scallops",
