@@ -1291,7 +1291,12 @@ const products = [
                 allergenInfo: "Contains Corn and Its Derivatives."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/h7Wz82d/sausage-1.jpg",
+            "https://i.ibb.co/wYnH2MF/sausage-2.jpg",
+            "https://i.ibb.co/0KmDVgn/sausage-3.jpg"
+        ]
     },
     {
         name: "Salami",
@@ -1357,7 +1362,12 @@ const products = [
                 allergenInfo: "Contains Shrimp and its Derivatives."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/8zTRdhr/shrimp-1.jpg",
+            "https://i.ibb.co/0tBByfv/shrimp-3.jpg",
+            "https://i.ibb.co/c8JgcWb/shrimp-2.jpg"
+        ]
     },
     {
         name: "Ground Bison",
@@ -1401,7 +1411,12 @@ const products = [
                 allergenInfo: "Contains Fish and Their Derivatives."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/ZB3JRwP/salmon-1.jpg",
+            "https://i.ibb.co/gZnXDBJ/salmon-2.jpg",
+            "https://i.ibb.co/LzBKJrR/salmon-3.jpg"
+        ]
     },
     {
         name: "Whole Frozen Duck",
@@ -1533,7 +1548,12 @@ const products = [
                 allergenInfo: "Contains Molluscs and Their Derivatives."
             },
         quantity: 20,
-        image: []
+        image: 
+        [
+            "https://i.ibb.co/82CccmK/scallop-1.jpg",
+            "https://i.ibb.co/7CzCdpv/scallop-2.jpg",
+            "https://i.ibb.co/KVP3M37/scallop-3.jpg"
+        ]
     },
     {
         name: "Everything Bagels",
