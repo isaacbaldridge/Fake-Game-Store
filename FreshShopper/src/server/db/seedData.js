@@ -10,8 +10,7 @@ const users = [
             state: "Washington",
             zip: "90210"
             }
-        )
-,
+        ),
         profilePic: "https://i.ibb.co/pPxtSfb/isaac-profile-pic.jpg",
         isAdmin: true
 
@@ -48,6 +47,8 @@ const users = [
 
     },
 ]
+
+// console.log(users)
 
 const noAllergen = "Free from Does Not Contain Declaration Obligatory Allergens"
 const products = [
@@ -2297,3 +2298,10 @@ const order_products = [
         quantity: 2
     }
 ]
+
+module.exports = {
+    users,
+    products,
+    orders,
+    order_products
+}
