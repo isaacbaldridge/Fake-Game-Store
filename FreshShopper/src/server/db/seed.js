@@ -24,6 +24,18 @@ const createTables = async () => {
             profilePic TEXT,
             isAdmin BOOLEAN DEFAULT false
         )`)
+
+        await db.query(`
+        CREATE TABLE products (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(255),
+            category VARCHAR(30),
+            description TEXT,
+            price DECIMAL,
+            nutritionalInfo TEXT,
+            quantity INTEGER,
+            image TEXT
+        )`)
         console.log("Successfully created users table.")
     } catch (error) {
         console.error("Error creating users table: ", error)
