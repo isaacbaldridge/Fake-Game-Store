@@ -3,13 +3,14 @@ const users = [
         name: "Isaac",
         email: "Isaac@example.com",
         password: "AliensExist9",
-        address: 
-        {
+        address: JSON.stringify(
+            {
             street: "903 Ocean Ave.",
             city: "Seattle",
             state: "Washington",
             zip: "90210"
-        },
+            }
+        ),
         profilePic: "https://i.ibb.co/pPxtSfb/isaac-profile-pic.jpg",
         isAdmin: true
 
@@ -18,13 +19,14 @@ const users = [
         name: "Abbey",
         email: "Abbey@example.com",
         password: "TaylorsVersion7",
-        address: 
-        {
-            street: "821 Uptown Road",
-            city: "Los Angeles",
-            state: "California",
-            zip: "90210"
-        },
+        address: JSON.stringify(
+            {
+                street: "821 Uptown Road",
+                city: "Los Angeles",
+                state: "California",
+                zip: "90210"
+            }
+        ),
         profilePic: "https://i.ibb.co/BKSy7wy/abbey-profile-pic.png",
         isAdmin: true
     },
@@ -32,19 +34,21 @@ const users = [
         name: "Emma",
         email: "Emma@example.com",
         password: "SillyGoose2",
-        address: 
-        {
-            street: "651 Chilly-Billy Blvd.",
-            city: "Tampa",
-            state: "Florida",
-            zip: "90210"
-        },
+        address: JSON.stringify(
+            {
+                street: "651 Chilly-Billy Blvd.",
+                city: "Tampa",
+                state: "Florida",
+                zip: "90210"
+            }
+        ),
         profilePic: "https://i.ibb.co/wdYPqnj/emma-profile-pic.jpg",
         isAdmin: false
 
     },
-
 ]
+
+// console.log(users)
 
 const noAllergen = "Free from Does Not Contain Declaration Obligatory Allergens"
 const products = [
@@ -2294,3 +2298,10 @@ const order_products = [
         quantity: 2
     }
 ]
+
+module.exports = {
+    users,
+    products,
+    orders,
+    order_products
+}
