@@ -3,14 +3,13 @@ const users = [
         name: "Isaac",
         email: "Isaac@example.com",
         password: "AliensExist9",
-        address: JSON.stringify(
+        address:
             {
             street: "903 Ocean Ave.",
             city: "Seattle",
             state: "Washington",
             zip: "90210"
-            }
-        ),
+            },
         profilePic: "https://i.ibb.co/pPxtSfb/isaac-profile-pic.jpg",
         isAdmin: true
 
@@ -19,14 +18,13 @@ const users = [
         name: "Abbey",
         email: "Abbey@example.com",
         password: "TaylorsVersion7",
-        address: JSON.stringify(
+        address:
             {
                 street: "821 Uptown Road",
                 city: "Los Angeles",
                 state: "California",
                 zip: "90210"
-            }
-        ),
+            },
         profilePic: "https://i.ibb.co/BKSy7wy/abbey-profile-pic.png",
         isAdmin: true
     },
@@ -34,14 +32,13 @@ const users = [
         name: "Emma",
         email: "Emma@example.com",
         password: "SillyGoose2",
-        address: JSON.stringify(
+        address:
             {
                 street: "651 Chilly-Billy Blvd.",
                 city: "Tampa",
                 state: "Florida",
                 zip: "90210"
-            }
-        ),
+            },
         profilePic: "https://i.ibb.co/wdYPqnj/emma-profile-pic.jpg",
         isAdmin: false
 
