@@ -14,7 +14,19 @@ const createOrderProduct = async( { order_id, product_id, quantity} ) => {
     }
 }
 
+const getAllOrderProducts = async () => {
+    try {
+        const {rows} = await db.query(`
+        SELECT *
+        FROM order_products
+        `)
+        return rows
+    } catch (error) {
+        console.error("Error SELECTING order_products: ", error)
+    }
+}
 
 module.exports = {
-    createOrderProduct
+    createOrderProduct,
+    getAllOrderProducts
 }

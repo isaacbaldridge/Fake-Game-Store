@@ -32,7 +32,7 @@ const createTables = async () => {
             name VARCHAR(255) DEFAULT 'name',
             email VARCHAR(255) UNIQUE NOT NULL,
             password TEXT NOT NULL,
-            address TEXT,
+            address JSON,
             profilePic TEXT,
             isAdmin BOOLEAN DEFAULT false
         )`)
@@ -43,10 +43,10 @@ const createTables = async () => {
             name VARCHAR(255),
             category VARCHAR(30),
             description TEXT,
-            price DECIMAL,
-            nutritionalInfo TEXT,
+            price DECIMAL, 
+            nutritionalInfo JSON,
             quantity INTEGER,
-            image TEXT
+            image TEXT[]
         )`)
 
         await db.query(`
