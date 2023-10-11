@@ -14,7 +14,19 @@ const createProduct = async( { name, category, description, price, nutritionalIn
     }
 }
 
+const getAllProducts = async () => {
+    try {
+        const { rows } = await db.query (`
+        SELECT *
+        FROM products
+        `)
+        return rows
+    } catch (error) {
+        console.error("Error selecting all products: ", error)
+    }
+}
 
 module.exports = {
-    createProduct
+    createProduct,
+    getAllProducts
 }

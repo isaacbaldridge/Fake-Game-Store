@@ -43,10 +43,10 @@ const createTables = async () => {
             name VARCHAR(255),
             category VARCHAR(30),
             description TEXT,
-            price DECIMAL,
-            nutritionalInfo TEXT,
+            price DECIMAL, 
+            nutritionalInfo JSON,
             quantity INTEGER,
-            image TEXT
+            image TEXT[]
         )`)
 
         await db.query(`
