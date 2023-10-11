@@ -40,9 +40,16 @@ const createTables = async () => {
             quantity INTEGER,
             image TEXT
         )`)
-        console.log("Successfully created users table.")
+
+        await db.query(`
+        CREATE TABLE orders (
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER REFERENCES users(id),
+            fulfilled BOOLEAN
+        )`)
+        console.log("Successfully created tables.")
     } catch (error) {
-        console.error("Error creating users table: ", error)
+        console.error("Error creating tables: ", error)
     }
 }
 
