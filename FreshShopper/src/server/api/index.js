@@ -1,7 +1,7 @@
 const express = require('express');
 const apiRouter = express.Router();
 const jwt = require('jsonwebtoken');
-// const {getUserById} = require('../db');
+const {getUserById} = require('../db/users');
 const { JWT_SECRET } = process.env;
 
 const volleyball = require('volleyball')
@@ -49,8 +49,8 @@ else {
   }
 });
 
-// const usersRouter = require('./users');
-// apiRouter.use('/users', usersRouter);
+const usersRouter = require('./users');
+apiRouter.use('/users', usersRouter);
 
 // const ordersRouter = require('./orders');
 // apiRouter.use('/orders', ordersRouter);
