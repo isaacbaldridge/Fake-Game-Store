@@ -5,14 +5,13 @@ const users = [
         password: "AliensExist9",
         address:
             {
-            street: "903 Ocean Ave.",
-            city: "Seattle",
-            state: "Washington",
-            zip: "90210"
+                street: "903 Ocean Ave.",
+                city: "Seattle",
+                state: "Washington",
+                zip: "90210"
             },
         profilePic: "https://i.ibb.co/pPxtSfb/isaac-profile-pic.jpg",
         isAdmin: true
-
     },
     {
         name: "Abbey",
@@ -45,7 +44,7 @@ const users = [
     },
 ]
 
-// console.log(users)
+// console.log(users[0].address)
 
 const noAllergen = "Free from Does Not Contain Declaration Obligatory Allergens"
 const products = [
