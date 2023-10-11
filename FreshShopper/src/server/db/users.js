@@ -10,7 +10,7 @@ const createUser = async( { name, email, password, address, profilePic, isAdmin}
         `, [name, email, password, address, profilePic, isAdmin])
         return user
     } catch (error) {
-        throw error
+        console.error("Error creating user: ", error)
     }
 }
 

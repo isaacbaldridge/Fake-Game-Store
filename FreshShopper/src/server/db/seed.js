@@ -94,6 +94,21 @@ const insertProducts = async () => {
     }
 }
 
+const insertOrders = async () => {
+    try {
+        for (const order of orders) {
+            await createOrder (
+                {
+                    user_id: order.user_id,
+                    fulfilled: order.fulfilled
+                }
+            )
+        }
+    } catch (error) {
+        console.error("Error inserting orders: ", error)
+    }
+}
+
 const seedDatabase = async () => {
     try {
         db.connect()

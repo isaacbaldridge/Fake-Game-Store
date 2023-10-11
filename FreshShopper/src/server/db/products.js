@@ -10,7 +10,7 @@ const createProduct = async( { name, category, description, price, nutritionalIn
         `, [name, category, description, price, nutritionalInfo, quantity, image])
         return product
     } catch (error) {
-        throw error
+        console.error("Error creating product: ", error)
     }
 }
 
