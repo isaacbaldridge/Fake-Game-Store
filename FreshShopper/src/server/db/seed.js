@@ -1,10 +1,14 @@
 const db = require("./client")
 const { createUser } = require("./users")
 const { createProduct } = require("./products")
+const { createOrder } = require("./orders")
 const { users, products, orders, order_products } = require("./seedData")
 
 const dropTables = async () => {
     try {
+        await db.query(`
+        DROP TABLE IF EXISTS orders;
+        `)
         await db.query(`
         DROP TABLE IF EXISTS users;
         `)
@@ -116,6 +120,7 @@ const seedDatabase = async () => {
         await createTables()
         await insertUsers()
         await insertProducts()
+        await insertOrders()
     } catch (error) {
         throw error
     } finally {
