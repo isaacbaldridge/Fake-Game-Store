@@ -52,14 +52,14 @@ else {
 const usersRouter = require('./users');
 apiRouter.use('/users', usersRouter);
 
-// const ordersRouter = require('./orders');
-// apiRouter.use('/orders', ordersRouter);
+const ordersRouter = require('./orders');
+apiRouter.use('/orders', ordersRouter);
 
 const productsRouter = require('./products');
 apiRouter.use('/products', productsRouter);
 
-// const orderProductsRouter = require('./order_products');
-// apiRouter.use('/order_products', orderProductsRouter);
+const orderProductsRouter = require('./order_products');
+apiRouter.use('/order_products', orderProductsRouter);
 
 apiRouter.use((err, req, res, next) => {
   console.trace(err)
