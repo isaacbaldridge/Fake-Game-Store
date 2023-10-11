@@ -1,10 +1,18 @@
 const db = require("./client")
 const { createUser } = require("./users")
 const { createProduct } = require("./products")
+const { createOrder } = require("./orders")
+const { createOrderProduct } = require("./order_products")
 const { users, products, orders, order_products } = require("./seedData")
 
 const dropTables = async () => {
     try {
+        await db.query(`
+        DROP TABLE IF EXISTS order_products;
+        `)
+        await db.query(`
+        DROP TABLE IF EXISTS orders;
+        `)
         await db.query(`
         DROP TABLE IF EXISTS users;
         `)
@@ -40,9 +48,24 @@ const createTables = async () => {
             quantity INTEGER,
             image TEXT
         )`)
-        console.log("Successfully created users table.")
+
+        await db.query(`
+        CREATE TABLE orders (
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER REFERENCES users(id),
+            fulfilled BOOLEAN
+        )`)
+
+        await db.query(`
+        CREATE TABLE order_products (
+            order_id INTEGER REFERENCES orders(id),
+            product_id INTEGER REFERENCES products(id),
+            quantity INTEGER
+        )
+        `)
+        console.log("Successfully created tables.")
     } catch (error) {
-        console.error("Error creating users table: ", error)
+        console.error("Error creating tables: ", error)
     }
 }
 
@@ -87,6 +110,37 @@ const insertProducts = async () => {
     }
 }
 
+const insertOrders = async () => {
+    try {
+        for (const order of orders) {
+            await createOrder (
+                {
+                    user_id: order.user_id,
+                    fulfilled: order.fulfilled
+                }
+            )
+        }
+    } catch (error) {
+        console.error("Error inserting orders seed data: ", error)
+    }
+}
+
+const insertOrderProducts = async () => {
+    try {
+        for (const order_product of order_products) {
+            await createOrderProduct (
+                {
+                    order_id: order_product.order_id,
+                    product_id: order_product.product_id,
+                    quantity: order_product.quantity
+                }
+            )
+        }
+    } catch (error) {
+        console.error("Error inserting order_product seed data: ", error)
+    }
+}
+
 const seedDatabase = async () => {
     try {
         db.connect()
@@ -94,8 +148,10 @@ const seedDatabase = async () => {
         await createTables()
         await insertUsers()
         await insertProducts()
+        await insertOrders()
+        await insertOrderProducts()
     } catch (error) {
-        throw error
+        console.error("Error seeding database: ", error)
     } finally {
         db.end()
     }
