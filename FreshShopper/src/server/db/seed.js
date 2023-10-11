@@ -51,6 +51,14 @@ const createTables = async () => {
             user_id INTEGER REFERENCES users(id),
             fulfilled BOOLEAN
         )`)
+
+        await db.query(`
+        CREATE TABLE order_products (
+            order_id INTEGER REFERENCES orders(id),
+            product_id INTEGER REFERENCES products(id),
+            quantity INTEGER
+        )
+        `)
         console.log("Successfully created tables.")
     } catch (error) {
         console.error("Error creating tables: ", error)
@@ -109,7 +117,7 @@ const insertOrders = async () => {
             )
         }
     } catch (error) {
-        console.error("Error inserting orders: ", error)
+        console.error("Error inserting orders seed data: ", error)
     }
 }
 
@@ -122,7 +130,7 @@ const seedDatabase = async () => {
         await insertProducts()
         await insertOrders()
     } catch (error) {
-        throw error
+        console.error("Error seeding database: ", error)
     } finally {
         db.end()
     }
