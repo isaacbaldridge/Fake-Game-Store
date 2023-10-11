@@ -2,10 +2,14 @@ const db = require("./client")
 const { createUser } = require("./users")
 const { createProduct } = require("./products")
 const { createOrder } = require("./orders")
+const { createOrderProduct } = require("./order_products")
 const { users, products, orders, order_products } = require("./seedData")
 
 const dropTables = async () => {
     try {
+        await db.query(`
+        DROP TABLE IF EXISTS order_products;
+        `)
         await db.query(`
         DROP TABLE IF EXISTS orders;
         `)
@@ -121,6 +125,22 @@ const insertOrders = async () => {
     }
 }
 
+const insertOrderProducts = async () => {
+    try {
+        for (const order_product of order_products) {
+            await createOrderProduct (
+                {
+                    order_id: order_product.order_id,
+                    product_id: order_product.product_id,
+                    quantity: order_product.quantity
+                }
+            )
+        }
+    } catch (error) {
+        console.error("Error inserting order_product seed data: ", error)
+    }
+}
+
 const seedDatabase = async () => {
     try {
         db.connect()
@@ -129,6 +149,7 @@ const seedDatabase = async () => {
         await insertUsers()
         await insertProducts()
         await insertOrders()
+        await insertOrderProducts()
     } catch (error) {
         console.error("Error seeding database: ", error)
     } finally {
