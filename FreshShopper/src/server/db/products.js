@@ -14,6 +14,8 @@ const createProduct = async( { name, category, description, price, nutritionalIn
     }
 }
 
+// GET/SELECT SQL queries
+
 const getAllProducts = async () => {
     try {
         const { rows } = await db.query (`
@@ -36,6 +38,17 @@ const getProductsByCategory = async (category) => {
         return rows
     } catch (error) {
         console.error("Error getting products by category: ", error)
+    }
+}
+
+const getProductById = async (id) => {
+    try {
+        const { row: [product] } = await db.query(`
+        SELECT *
+        FROM products
+        WHERE id = $1
+        `, [id])
+        return product
     }
 }
 
