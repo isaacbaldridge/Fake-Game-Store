@@ -3,7 +3,8 @@ const productsRouter = express.Router()
 
 const {
     getAllProducts,
-    getProductsByCategory
+    getProductsByCategory,
+    getProductById
 } = require("../db/products")
 
 
@@ -24,6 +25,17 @@ productsRouter.get("/category/:category", async (req, res, next) => {
     try {
         const products = await getProductsByCategory(category)
         res.send(products)
+    } catch ({name, message}) {
+        next({name, message})
+    }
+})
+
+// /api/products/:id
+productsRouter.get("/:id", async (req, res, next) => {
+    const { id } = req.params
+    try {
+        const product = await getProductById(id)
+        res.send(product)
     } catch ({name, message}) {
         next({name, message})
     }

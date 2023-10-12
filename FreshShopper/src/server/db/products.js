@@ -37,23 +37,26 @@ const getProductsByCategory = async (category) => {
         `, [category])
         return rows
     } catch (error) {
-        console.error("Error getting products by category: ", error)
+        console.error("Error SELECTING products by category: ", error)
     }
 }
 
 const getProductById = async (id) => {
     try {
-        const { row: [product] } = await db.query(`
+        const { rows: [product] } = await db.query(`
         SELECT *
         FROM products
         WHERE id = $1
         `, [id])
         return product
+    } catch (error) {
+        console.error("Error SELECTING product by Id: ", error)
     }
 }
 
 module.exports = {
     createProduct,
     getAllProducts,
-    getProductsByCategory
+    getProductsByCategory,
+    getProductById
 }
