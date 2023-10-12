@@ -63,9 +63,10 @@ const getProductById = async (id) => {
 const deleteProductById = async (id) => {
     try {
         const { rows: [product] } = await db.query(`
-        DELETE *
+        DELETE
         FROM products
         WHERE id = $1
+        RETURNING *
         `, [id])
         return product
     } catch (error) {
