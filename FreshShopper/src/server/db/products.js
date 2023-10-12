@@ -26,7 +26,21 @@ const getAllProducts = async () => {
     }
 }
 
+const getProductsByCategory = async (category) => {
+    try {
+        const { rows } = await db.query (`
+        SELECT *
+        FROM products
+        WHERE category = $1
+        `, [category])
+        return rows
+    } catch (error) {
+        console.error("Error getting products by category: ", error)
+    }
+}
+
 module.exports = {
     createProduct,
-    getAllProducts
+    getAllProducts,
+    getProductsByCategory
 }
