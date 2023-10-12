@@ -14,6 +14,8 @@ const createProduct = async( { name, category, description, price, nutritionalIn
     }
 }
 
+
+
 // GET/SELECT SQL queries
 
 const getAllProducts = async () => {
@@ -54,9 +56,27 @@ const getProductById = async (id) => {
     }
 }
 
+
+
+// DELETE query
+
+const deleteProductById = async (id) => {
+    try {
+        const { rows: [product] } = await db.query(`
+        DELETE *
+        FROM products
+        WHERE id = $1
+        `, [id])
+        return product
+    } catch (error) {
+        console.error("Error DELETING product by id: ", error)
+    }
+}
+
 module.exports = {
     createProduct,
     getAllProducts,
     getProductsByCategory,
-    getProductById
+    getProductById,
+    deleteProductById
 }
