@@ -5,8 +5,10 @@ const {
     getAllProducts,
     getProductsByCategory,
     getProductById,
-    deleteProductById
+    deleteProductById,
+    createProduct
 } = require("../db/products")
+const bodyParser = require("body-parser")
 
 
 
@@ -56,6 +58,37 @@ productsRouter.delete("/:id", async (req, res, next) => {
         const product = await deleteProductById(id)
         res.send(product)
     } catch ({name, message}) {
+        next({name, message})
+    }
+})
+
+
+// POST request
+
+// /api/products
+productsRouter.post("/", async (req, res, next) => {
+    const {
+        name,
+        category,
+        description,
+        price,
+        nutritionalInfo,
+        quantity,
+        image
+    } = req.body
+
+    const productData = {}
+    try {
+        productData.name = name
+        productData.category = category
+        productData.description = description
+        productData.price = price
+        productData.nutritionalInfo = nutritionalInfo
+        productData.quantity = quantity
+        productData.image = image
+        const newProduct = await createProduct(productData)
+        res.send(newProduct)
+    } catch({name, message}) {
         next({name, message})
     }
 })
