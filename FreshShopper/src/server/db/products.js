@@ -74,10 +74,34 @@ const deleteProductById = async (id) => {
     }
 }
 
+
+// UPDATE query
+
+async function updateProductById(id, fields = {}){
+    const setString = Object.keys(fields).map(
+      (key, index) => `"${key}" = $${index + 1}`  
+    ).join(", ");
+
+    try{
+       
+        const{rows: [product]} = await db.query(`
+        UPDATE products 
+        SET ${setString}
+        WHERE id = ${id}
+        RETURNING *;
+        `, Object.values(fields))
+       return product
+       
+    }catch(err){
+        throw err
+    }
+}
+
 module.exports = {
     createProduct,
     getAllProducts,
     getProductsByCategory,
     getProductById,
-    deleteProductById
+    deleteProductById,
+    updateProductById
 }

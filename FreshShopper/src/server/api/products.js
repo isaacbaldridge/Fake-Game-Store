@@ -6,9 +6,9 @@ const {
     getProductsByCategory,
     getProductById,
     deleteProductById,
-    createProduct
+    createProduct,
+    updateProductById
 } = require("../db/products")
-const bodyParser = require("body-parser")
 
 
 
@@ -92,4 +92,18 @@ productsRouter.post("/", async (req, res, next) => {
         next({name, message})
     }
 })
+
+
+// PATCH request
+
+// /api/products/:id
+productsRouter.patch(`/:id`,async(req, res, next)=>{
+    try {
+      const updateProduct = await updateProductById(req.params.id, req.body)
+      res.send(updateProduct)
+    } catch ({name, message}) {
+      next ({name, message})
+    }
+})
+
 module.exports = productsRouter
