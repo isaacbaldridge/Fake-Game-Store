@@ -83,8 +83,7 @@ async function updateProductById(id, fields = {}){
     ).join(", ");
 
     try{
-       
-        const{rows: [product]} = await db.query(`
+        const { rows: [product] } = await db.query(`
         UPDATE products 
         SET ${setString}
         WHERE id = ${id}
@@ -92,8 +91,8 @@ async function updateProductById(id, fields = {}){
         `, Object.values(fields))
        return product
        
-    }catch(err){
-        throw err
+    } catch (error) {
+        console.error("Error updating product in db: ", error)
     }
 }
 
