@@ -1,4 +1,5 @@
 const db = require("./client")
+const chalk = require("chalk")
 const { createUser } = require("./users")
 const { createProduct } = require("./products")
 const { createOrder } = require("./orders")
@@ -19,8 +20,9 @@ const dropTables = async () => {
         await db.query(`
         DROP TABLE IF EXISTS products;
         `)
+        console.log(chalk.green("Successfully dropped all tables."))
     } catch (error) {
-        console.error("Error dropping users table: ", error)
+        console.error(chalk.red("Error dropping users table: "), error)
     }
 }
 
@@ -63,9 +65,9 @@ const createTables = async () => {
             quantity INTEGER
         )
         `)
-        console.log("Successfully created tables.")
+        console.log(chalk.green("Successfully created tables."))
     } catch (error) {
-        console.error("Error creating tables: ", error)
+        console.error(chalk.red("Error creating tables: "), error)
     }
 }
 
@@ -83,9 +85,9 @@ const insertUsers = async () => {
                 }
             )
         }
-        console.log("Successfully inserted user data.")
+        console.log(chalk.green("Successfully inserted user data."))
     } catch (error) {
-        console.error("Error inserting user seed data: ", error)
+        console.error(chalk.red("Error inserting user seed data: "), error)
     }
 }
 
@@ -104,9 +106,9 @@ const insertProducts = async () => {
                 }
             )
         }
-        console.log("Successfully inserted products seed data.")
+        console.log(chalk.green("Successfully inserted products seed data."))
     } catch (error) {
-        console.error("Error inserting products seed data: ", error)
+        console.error(chalk.red("Error inserting products seed data: "), error)
     }
 }
 
@@ -121,7 +123,7 @@ const insertOrders = async () => {
             )
         }
     } catch (error) {
-        console.error("Error inserting orders seed data: ", error)
+        console.error(chalk.red("Error inserting orders seed data: "), error)
     }
 }
 
@@ -137,7 +139,7 @@ const insertOrderProducts = async () => {
             )
         }
     } catch (error) {
-        console.error("Error inserting order_product seed data: ", error)
+        console.error(chalk.red("Error inserting order_product seed data: "), error)
     }
 }
 

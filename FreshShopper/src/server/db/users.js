@@ -1,5 +1,6 @@
 const db = require("./client")
-
+const bcrypt = require("bcrypt")
+const SALT_COUNT = 10
 
 const createUser = async( { name, email, password, address, profilePic, isAdmin} ) => {
     try {
