@@ -1,15 +1,17 @@
 const db = require("./client")
 const chalk = require("chalk")
 const bcrypt = require("bcrypt")
-const SALT_COUNT = 10
+const SALT_ROUNDS = 13
 
-const createUser = async( { name, email, password, address, profilePic, isAdmin} ) => {
+const createUser = async( { name, email, password, address, profilePic, isAdmin } ) => {
+
+  const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS)
     try {
         const { rows: [ user ] } = await db.query(`
         INSERT INTO users (name, email, password, address, profilePic, isAdmin)
         VALUES($1, $2, $3, $4, $5, $6)
         RETURNING *
-        `, [name, email, password, address, profilePic, isAdmin])
+        `, [name, email, hashedPassword, address, profilePic, isAdmin])
         return user
     } catch (error) {
         console.error(chalk.red("Error creating user: "), error)
