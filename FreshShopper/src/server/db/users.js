@@ -1,4 +1,5 @@
 const db = require("./client")
+const chalk = require("chalk")
 const bcrypt = require("bcrypt")
 const SALT_COUNT = 10
 
@@ -11,7 +12,7 @@ const createUser = async( { name, email, password, address, profilePic, isAdmin}
         `, [name, email, password, address, profilePic, isAdmin])
         return user
     } catch (error) {
-        console.error("Error creating user: ", error)
+        console.error(chalk.red("Error creating user: "), error)
     }
 }
 
@@ -23,7 +24,7 @@ const getAllUsers = async () => {
         `)
         return rows
     } catch (error) {
-        console.error("Error getting all users: ", error)
+        console.error(chalk.red("Error getting all users: "), error)
     }
 }
 

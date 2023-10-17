@@ -1,4 +1,5 @@
 const db = require("./client")
+const chalk = require("chalk")
 
 
 const createProduct = async( { name, category, description, price, nutritionalInfo, quantity, image} ) => {
@@ -10,7 +11,7 @@ const createProduct = async( { name, category, description, price, nutritionalIn
         `, [name, category, description, price, nutritionalInfo, quantity, image])
         return product
     } catch (error) {
-        console.error("Error creating product: ", error)
+        console.error(chalk.red("Error creating product: "), error)
     }
 }
 
@@ -26,7 +27,7 @@ const getAllProducts = async () => {
         `)
         return rows
     } catch (error) {
-        console.error("Error selecting all products: ", error)
+        console.error(chalk.red("Error selecting all products: "), error)
     }
 }
 
@@ -39,7 +40,7 @@ const getProductsByCategory = async (category) => {
         `, [category])
         return rows
     } catch (error) {
-        console.error("Error SELECTING products by category: ", error)
+        console.error(chalk.red("Error SELECTING products by category: "), error)
     }
 }
 
@@ -52,7 +53,7 @@ const getProductById = async (id) => {
         `, [id])
         return product
     } catch (error) {
-        console.error("Error SELECTING product by Id: ", error)
+        console.error(chalk.red("Error SELECTING product by Id: "), error)
     }
 }
 
@@ -70,7 +71,7 @@ const deleteProductById = async (id) => {
         `, [id])
         return product
     } catch (error) {
-        console.error("Error DELETING product by id: ", error)
+        console.error(chalk.red("Error DELETING product by id: "), error)
     }
 }
 
@@ -92,7 +93,7 @@ async function updateProductById(id, fields = {}){
        return product
        
     } catch (error) {
-        console.error("Error updating product in db: ", error)
+        console.error(chalk.red("Error updating product in db: "), error)
     }
 }
 
