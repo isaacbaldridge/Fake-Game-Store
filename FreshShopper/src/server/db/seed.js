@@ -1,6 +1,6 @@
 const db = require("./client")
 const chalk = require("chalk")
-const { createUser } = require("./users")
+const { createUser, logIn } = require("./users")
 const { createProduct } = require("./products")
 const { createOrder } = require("./orders")
 const { createOrderProduct } = require("./order_products")
@@ -143,6 +143,13 @@ const insertOrderProducts = async () => {
     }
 }
 
+const checkLogIn = async () => {
+    await logIn( { email: "Isaac@example.com", password: "AliensExist9" } )
+    await logIn( { email: "Leann@example.com", password: "AliensExist9" } )
+    await logIn( { email: "Abbey@example.com", password: "AliensExist9" } )
+
+}
+
 const seedDatabase = async () => {
     try {
         db.connect()
@@ -152,6 +159,7 @@ const seedDatabase = async () => {
         await insertProducts()
         await insertOrders()
         await insertOrderProducts()
+        await checkLogIn()
     } catch (error) {
         console.error("Error seeding database: ", error)
     } finally {

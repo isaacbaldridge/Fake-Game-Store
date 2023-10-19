@@ -18,6 +18,26 @@ const createUser = async( { name, email, password, address, profilePic, isAdmin 
     }
 }
 
+const logIn = async ( { email, password } ) => {
+  try {
+    // does this user exist?
+    const { rows: [ user ] } = await db.query(`
+    SELECT *
+    FROM users
+    WHERE email = $1
+    `, [email])
+
+    console.log(chalk.blue("Checking LogIn user: "), user)
+    if (!user) {
+      return
+    }
+
+
+  } catch (error) {
+    console.error (chalk.red("Error checking login db: ", error))
+  }
+}
+
 const getAllUsers = async () => {
     try {
         const { rows } = await db.query (`
@@ -54,5 +74,6 @@ async function getUserById(userId) {
 module.exports = {
     createUser,
     getAllUsers,
-    getUserById
+    getUserById,
+    logIn
 }
