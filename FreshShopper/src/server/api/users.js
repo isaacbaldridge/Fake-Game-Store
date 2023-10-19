@@ -9,7 +9,8 @@ usersRouter.use(morgan("tiny"))
 
 const {
     createUser,
-    getAllUsers
+    getAllUsers,
+    getUserByEmail
 } = require("../db/users")
 
 
@@ -28,6 +29,10 @@ usersRouter.get("/", async (req, res, next) => {
 usersRouter.post("/register", async (req, res, next) => {
     const { name, email, password, address, profilepic } = req.body
     try {
+        const existingUser = await getUserByEmail(email)
+        if (existingUser) {
+            return res.send("A user with this email already exists.")
+        }
         if (!name || !email || !password) {
             return res.status(401).send("Missing name, email, and/or password")
         }

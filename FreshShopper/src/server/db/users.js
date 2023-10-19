@@ -79,9 +79,33 @@ async function getUserById(userId) {
   }
 }
 
+async function getUserByEmail(email) {
+  try {
+    const { rows: [ user ] } = await db.query(`
+      SELECT *
+      FROM users
+      WHERE email = $1
+    `, [email]);
+
+    if (!user) {
+      throw {
+        name: "UserNotFoundError",
+        message: "A user with that id does not exist"
+      }
+    }
+
+  return user;
+} catch (error) {
+  throw error;
+}
+}
+
+
+
 module.exports = {
     createUser,
     getAllUsers,
     getUserById,
+    getUserByEmail,
     logIn
 }
