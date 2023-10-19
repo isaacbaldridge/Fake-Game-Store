@@ -143,12 +143,12 @@ const insertOrderProducts = async () => {
     }
 }
 
-const checkLogIn = async () => {
-    await logIn( { email: "Isaac@example.com", password: "AliensExist9" } )
-    await logIn( { email: "Leann@example.com", password: "AliensExist9" } )
-    await logIn( { email: "Abbey@example.com", password: "AliensExist9" } )
+// const checkLogIn = async () => {
+//     await logIn( { email: "Isaac@example.com", password: "AliensExist9" } )
+//     await logIn( { email: "Leann@example.com", password: "AliensExist9" } )
+//     await logIn( { email: "Abbey@example.com", password: "AliensExist9" } )
 
-}
+// }
 
 const seedDatabase = async () => {
     try {
@@ -159,7 +159,7 @@ const seedDatabase = async () => {
         await insertProducts()
         await insertOrders()
         await insertOrderProducts()
-        await checkLogIn()
+        // await checkLogIn()
     } catch (error) {
         console.error("Error seeding database: ", error)
     } finally {

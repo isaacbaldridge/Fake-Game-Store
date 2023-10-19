@@ -29,7 +29,15 @@ const logIn = async ( { email, password } ) => {
 
     console.log(chalk.blue("Checking LogIn user: "), user)
     if (!user) {
-      return
+      throw new Error("Email does not exist.")
+    }
+
+    const compare = await bcrypt.compare(password, user.password)
+    if (compare) {
+      console.log(chalk.yellow("Email and passwords match!"))
+      return user
+    } else {
+      throw new Error("Passwords do not match.")
     }
 
 
@@ -71,9 +79,26 @@ async function getUserById(userId) {
   }
 }
 
+async function getUserByEmail(email) {
+  try {
+    const { rows: [ user ] } = await db.query(`
+      SELECT *
+      FROM users
+      WHERE email = $1
+    `, [email]);
+
+  return user;
+} catch (error) {
+  throw error;
+}
+}
+
+
+
 module.exports = {
     createUser,
     getAllUsers,
     getUserById,
+    getUserByEmail,
     logIn
 }
