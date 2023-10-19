@@ -10,7 +10,8 @@ usersRouter.use(morgan("tiny"))
 const {
     createUser,
     getAllUsers,
-    getUserByEmail
+    getUserByEmail,
+    logIn
 } = require("../db/users")
 
 
@@ -51,6 +52,31 @@ usersRouter.post("/register", async (req, res, next) => {
 
     } catch ({name, message}) {
         next({name, message})
+    }
+})
+
+// /api/users/login
+usersRouter.post("/login", async (req, res, next) => {
+    try {
+        const { email, password } = req.body
+
+        if (!email || !password) {
+            return res.send("Missing name, email, and/or password")
+        }
+
+        const user = await logIn( { email, password } )
+        if (user) {
+            res.send({
+                message: "You've succesffully logged in!",
+                user
+            })
+        }
+        else {
+            res.send("Email or password incorrect.")
+        }
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).send(error.message)
     }
 })
 
