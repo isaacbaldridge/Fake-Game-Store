@@ -1,5 +1,10 @@
 const express = require("express")
 const usersRouter = express.Router()
+const chalk = require("chalk")
+const morgan = require("morgan")
+
+// ---- Loggin middleware -----
+usersRouter.use(morgan("tiny"))
 
 const {
     createUser,

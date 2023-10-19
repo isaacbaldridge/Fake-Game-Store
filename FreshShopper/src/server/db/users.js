@@ -29,7 +29,15 @@ const logIn = async ( { email, password } ) => {
 
     console.log(chalk.blue("Checking LogIn user: "), user)
     if (!user) {
-      return
+      throw new Error("Username does not exist.")
+    }
+
+    const compare = await bcrypt.compare(password, user.password)
+    if (compare) {
+      console.log(chalk.yellow("Username and passwords match!"))
+      return user
+    } else {
+      throw new Error("Passwords do not match.")
     }
 
 
