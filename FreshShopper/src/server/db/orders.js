@@ -40,8 +40,22 @@ const getOrderById = async (id) => {
     }
 }
 
+const getOrdersByUserId = async (userId) => {
+    try {
+        const { rows } = await db.query(`
+        SELECT *
+        FROM orders
+        WHERE user_id = $1
+        `, [userId])
+        return rows
+    } catch (error) {
+        console.error(chalk.red("Error SELECTING orders by user Id: "), error)
+    }
+}
+
 module.exports = {
     createOrder,
     getAllOrders,
-    getOrderById
+    getOrderById,
+    getOrdersByUserId
 }
