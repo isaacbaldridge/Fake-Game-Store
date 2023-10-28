@@ -6,6 +6,8 @@ const morgan = require("morgan")
 // ---- Loggin middleware ---- //
 ordersRouter.use(morgan("tiny"))
 
+const {requireUser} = require("./utils")
+
 const {
     createOrder,
     getAllOrders,
@@ -52,5 +54,19 @@ ordersRouter.get("/user/:id", async (req, res) => {
     }
 })
 
+// ---- CREATE NEW ORDER ---- //
+// /api/orders
+ordersRouter.post("/", requireUser, async (req, res) => {
+    const user_id = req.user.id
+    // const { user_id, fulfilled } = req.body
+    try {
+        const newOrder = await createOrder( { user_id } )
+        res.send(newOrder)
+
+    } catch (error) {
+        console.error(chalk.red("Error POSTING new order: "), error)
+        throw error
+    }
+})
 
 module.exports = ordersRouter
