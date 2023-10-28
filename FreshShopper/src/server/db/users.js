@@ -95,6 +95,21 @@ async function getUserByEmail(email) {
 }
 }
 
+const deleteUserById = async (userId) => {
+  try {
+    const { rows: [ user ] } = await db.query(`
+    DELETE
+    FROM users
+    WHERE id = $1
+    RETURNING *
+    `, [userId])
+    return user
+  } catch (error) {
+    console.error(chalk.red("Error deleting user from DB: ", error))
+    throw error
+  }
+}
+
 
 
 module.exports = {
@@ -102,5 +117,6 @@ module.exports = {
     getAllUsers,
     getUserById,
     getUserByEmail,
-    logIn
+    logIn,
+    deleteUserById
 }

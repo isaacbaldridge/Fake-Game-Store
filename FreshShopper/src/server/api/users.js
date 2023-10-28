@@ -8,12 +8,14 @@ const { JWT_SECRET } = process.env
 // ---- Loggin middleware ---- //
 usersRouter.use(morgan("tiny"))
 
+const {requireUser} = require("./utils")
 
 const {
     createUser,
     getAllUsers,
     getUserByEmail,
-    logIn
+    logIn,
+    deleteUserById
 } = require("../db/users")
 
 
@@ -118,6 +120,19 @@ usersRouter.get("/me", async (req, res) => {
         console.error(chalk.red("Error retrieving /me user information: "), error)
         throw error
     }
+})
+
+// /api/users/:id
+usersRouter.delete("/:id", async (req, res) => {
+    const { id } = req.params
+    try {
+        const deletedUser = await deleteUserById(id)
+        res.send(deletedUser)
+    } catch (error) {
+        console.error(chalk.red("Error deleting user from DB: ", error))
+        throw error
+    }
+
 })
 
 module.exports = usersRouter
