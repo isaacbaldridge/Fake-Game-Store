@@ -15,6 +15,7 @@ const createUser = async( { name, email, password, address, profilePic, isAdmin 
         return user
     } catch (error) {
         console.error(chalk.red("Error creating user: "), error)
+        throw error
     }
 }
 

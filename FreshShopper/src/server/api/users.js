@@ -2,6 +2,7 @@ const express = require("express")
 const usersRouter = express.Router()
 const chalk = require("chalk")
 const morgan = require("morgan")
+const jwt = require("jsonwebtoken")
 
 // ---- Loggin middleware ---- //
 usersRouter.use(morgan("tiny"))
@@ -47,7 +48,17 @@ usersRouter.post("/register", async (req, res, next) => {
         })
 
         if (user) {
-            res.send(user)
+            const token = jwt.sign({
+                id: user.id,
+                email
+            }, process.env.JWT_SECRET, {
+                expiresIn: '1w'
+            });
+            res.send( { 
+                message: "Register successful!",
+                user,
+                token
+             } )
         }
 
     } catch ({name, message}) {
@@ -66,14 +77,21 @@ usersRouter.post("/login", async (req, res, next) => {
 
         const user = await logIn( { email, password } )
         if (user) {
+
+            const token = jwt.sign({
+                id: user.id,
+                email
+            }, process.env.JWT_SECRET, {
+                expiresIn: '1w'
+            });
+
             res.send({
-                message: "You've succesffully logged in!",
-                user
+                message: "Login Successful!",
+                user,
+                token
             })
         }
-        // else {
-        //     res.send("Email or password incorrect.")
-        // }
+
     } catch (error) {
         // console.log(error.message)
         res.send(error.message)
