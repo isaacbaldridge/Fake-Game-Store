@@ -1,4 +1,5 @@
 const db = require("./client")
+const chalk = require("chalk")
 
 
 const createOrder = async( { user_id, fulfilled } ) => {
@@ -10,7 +11,7 @@ const createOrder = async( { user_id, fulfilled } ) => {
         `, [user_id, fulfilled])
         return order
     } catch (error) {
-        console.error("Error creating order: ", error)
+        console.error(chalk.red("Error creating order: "), error)
     }
 }
 
@@ -22,11 +23,25 @@ const getAllOrders = async () => {
         `)
         return rows
     } catch (error) {
-        console.error("Error SELECTING all orders: ", error)
+        console.error(chalk.red("Error SELECTING all orders: "), error)
+    }
+}
+
+const getOrderById = async (id) => {
+    try {
+        const { rows: [ order ] } = await db.query(`
+        SELECT *
+        FROM orders
+        WHERE id = $1
+        `, [id])
+        return order
+    } catch (error) {
+        console.error(chalk.red("error SELECTING order by Id: "), error)
     }
 }
 
 module.exports = {
     createOrder,
-    getAllOrders
+    getAllOrders,
+    getOrderById
 }
