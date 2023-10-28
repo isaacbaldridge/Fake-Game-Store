@@ -43,6 +43,7 @@ const logIn = async ( { email, password } ) => {
 
   } catch (error) {
     console.error (chalk.red("Error checking login db: ", error))
+    throw error
   }
 }
 

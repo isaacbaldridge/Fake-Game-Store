@@ -71,12 +71,12 @@ usersRouter.post("/login", async (req, res, next) => {
                 user
             })
         }
-        else {
-            res.send("Email or password incorrect.")
-        }
+        // else {
+        //     res.send("Email or password incorrect.")
+        // }
     } catch (error) {
-        console.log(error.message)
-        res.status(500).send(error.message)
+        // console.log(error.message)
+        res.send(error.message)
     }
 })
 
