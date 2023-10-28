@@ -3,6 +3,7 @@ const usersRouter = express.Router()
 const chalk = require("chalk")
 const morgan = require("morgan")
 const jwt = require("jsonwebtoken")
+const { JWT_SECRET } = process.env
 
 // ---- Loggin middleware ---- //
 usersRouter.use(morgan("tiny"))
@@ -51,7 +52,7 @@ usersRouter.post("/register", async (req, res, next) => {
             const token = jwt.sign({
                 id: user.id,
                 email
-            }, process.env.JWT_SECRET, {
+            }, JWT_SECRET, {
                 expiresIn: '1w'
             });
             res.send( { 
@@ -79,15 +80,13 @@ usersRouter.post("/login", async (req, res, next) => {
         if (user) {
 
             const token = jwt.sign({
-                id: user.id,
-                email
-            }, process.env.JWT_SECRET, {
+                user
+            }, JWT_SECRET, {
                 expiresIn: '1w'
             });
 
             res.send({
                 message: "Login Successful!",
-                user,
                 token
             })
         }
@@ -95,6 +94,29 @@ usersRouter.post("/login", async (req, res, next) => {
     } catch (error) {
         // console.log(error.message)
         res.send(error.message)
+    }
+})
+
+// /api/users/me
+usersRouter.get("/me", async (req, res) => {
+    const token = req.headers.authorization
+    console.log(chalk.yellow("Token: ", token))
+    newToken = token.split(" ")[1]
+    console.log(chalk.green("newToken:", newToken))
+
+    try {
+        if (!token) {
+            return res.send("Bad token.")
+        }
+        // console.log(chalk.yellow("Testing..."))
+        const user = jwt.verify(newToken, JWT_SECRET)
+        res.send( {
+            message: "Profile information retrieved!",
+            ...user
+        })
+    } catch (error) {
+        console.error(chalk.red("Error retrieving /me user information: "), error)
+        throw error
     }
 })
 
