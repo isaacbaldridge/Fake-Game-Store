@@ -15,6 +15,7 @@ const createUser = async( { name, email, password, address, profilePic, isAdmin 
         return user
     } catch (error) {
         console.error(chalk.red("Error creating user: "), error)
+        throw error
     }
 }
 
@@ -43,6 +44,7 @@ const logIn = async ( { email, password } ) => {
 
   } catch (error) {
     console.error (chalk.red("Error checking login db: ", error))
+    throw error
   }
 }
 
@@ -93,6 +95,43 @@ async function getUserByEmail(email) {
 }
 }
 
+const deleteUserById = async (userId) => {
+  try {
+    const { rows: [ user ] } = await db.query(`
+    DELETE
+    FROM users
+    WHERE id = $1
+    RETURNING *
+    `, [userId])
+    return user
+  } catch (error) {
+    console.error(chalk.red("Error deleting user from DB: ", error))
+    throw error
+  }
+}
+
+async function updateUserById(id, fields = {}){
+  const setString = Object.keys(fields).map(
+    (key, index) => `"${key}" = $${index + 1}`  
+  ).join(", ");
+
+  console.log("ID: ", id)
+  console.log("fields: ", fields)
+
+
+  try{
+      const { rows: [user] } = await db.query(`
+      UPDATE users 
+      SET ${setString}
+      WHERE id = ${id}
+      RETURNING *;
+      `, Object.values(fields))
+     return user
+     
+  } catch (error) {
+      console.error(chalk.red("Error updating product in db: "), error)
+  }
+}
 
 
 module.exports = {
@@ -100,5 +139,7 @@ module.exports = {
     getAllUsers,
     getUserById,
     getUserByEmail,
-    logIn
+    logIn,
+    deleteUserById,
+    updateUserById
 }

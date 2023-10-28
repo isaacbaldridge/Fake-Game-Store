@@ -2,19 +2,24 @@ const express = require("express")
 const usersRouter = express.Router()
 const chalk = require("chalk")
 const morgan = require("morgan")
+const jwt = require("jsonwebtoken")
+const { JWT_SECRET } = process.env
 
 // ---- Loggin middleware ---- //
 usersRouter.use(morgan("tiny"))
 
+const {requireUser} = require("./utils")
 
 const {
     createUser,
     getAllUsers,
     getUserByEmail,
-    logIn
+    logIn,
+    deleteUserById,
+    updateUserById
 } = require("../db/users")
 
-
+// ---- GET ALL USERS ---- //
 // /api/users/
 usersRouter.get("/", async (req, res, next) => {
     try {
@@ -26,6 +31,7 @@ usersRouter.get("/", async (req, res, next) => {
     }
 })
 
+// ---- USER REGISTER ---- //
 // /api/users/register
 usersRouter.post("/register", async (req, res, next) => {
     const { name, email, password, address, profilepic } = req.body
@@ -47,7 +53,16 @@ usersRouter.post("/register", async (req, res, next) => {
         })
 
         if (user) {
-            res.send(user)
+            const token = jwt.sign({
+                id: user.id,
+                email
+            }, JWT_SECRET, {
+                expiresIn: '1w'
+            });
+            res.send( { 
+                message: "Register successful!",
+                token
+             } )
         }
 
     } catch ({name, message}) {
@@ -55,6 +70,7 @@ usersRouter.post("/register", async (req, res, next) => {
     }
 })
 
+// ---- USER LOGIN ---- //
 // /api/users/login
 usersRouter.post("/login", async (req, res, next) => {
     try {
@@ -66,17 +82,73 @@ usersRouter.post("/login", async (req, res, next) => {
 
         const user = await logIn( { email, password } )
         if (user) {
-            res.send({
-                message: "You've succesffully logged in!",
+
+            const token = jwt.sign({
                 user
+            }, JWT_SECRET, {
+                expiresIn: '1w'
+            });
+
+            res.send({
+                message: "Login Successful!",
+                token
             })
         }
-        else {
-            res.send("Email or password incorrect.")
-        }
+
     } catch (error) {
-        console.log(error.message)
-        res.status(500).send(error.message)
+        // console.log(error.message)
+        res.send(error.message)
+    }
+})
+
+// ---- RETRIEVE LOGGED IN USER INFORMATION ----//
+// /api/users/me
+usersRouter.get("/me", async (req, res) => {
+    const token = req.headers.authorization
+    console.log(chalk.yellow("Token: ", token))
+    newToken = token.split(" ")[1]
+    console.log(chalk.green("newToken:", newToken))
+
+    try {
+        if (!token) {
+            return res.send("Bad token.")
+        }
+        // console.log(chalk.yellow("Testing..."))
+        const user = jwt.verify(newToken, JWT_SECRET)
+        res.send( {
+            message: "Profile information retrieved!",
+            ...user
+        })
+    } catch (error) {
+        console.error(chalk.red("Error retrieving /me user information: "), error)
+        throw error
+    }
+})
+
+//  ---- UPDATE USER INFORMATION ---- //
+// /api/users/:id
+usersRouter.patch("/:id", async (req, res) => {
+    const { id } = req.params
+    try {
+        const updatedUser = await updateUserById(id, req.body)
+        res.send(updatedUser)
+    } catch (error) {
+        console.error(chalk.red("Error updating user information API: ", error))
+        throw error
+    }
+})
+
+// ---- DELETE USER ---- //
+// /api/users/:id
+usersRouter.delete("/:id", async (req, res) => {
+    const { id } = req.params
+    // console.log("ID: ", id)
+    try {
+        const deletedUser = await deleteUserById(id)
+        res.send(deletedUser)
+    } catch (error) {
+        console.error(chalk.red("Error deleting user from DB: ", error))
+        throw error
     }
 })
 
