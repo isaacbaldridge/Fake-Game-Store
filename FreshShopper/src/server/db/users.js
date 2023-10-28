@@ -110,6 +110,28 @@ const deleteUserById = async (userId) => {
   }
 }
 
+async function updateUserById(id, fields = {}){
+  const setString = Object.keys(fields).map(
+    (key, index) => `"${key}" = $${index + 1}`  
+  ).join(", ");
+
+  console.log("ID: ", id)
+  console.log("fields: ", fields)
+
+
+  try{
+      const { rows: [user] } = await db.query(`
+      UPDATE users 
+      SET ${setString}
+      WHERE id = ${id}
+      RETURNING *;
+      `, Object.values(fields))
+     return user
+     
+  } catch (error) {
+      console.error(chalk.red("Error updating product in db: "), error)
+  }
+}
 
 
 module.exports = {
@@ -118,5 +140,6 @@ module.exports = {
     getUserById,
     getUserByEmail,
     logIn,
-    deleteUserById
+    deleteUserById,
+    updateUserById
 }
