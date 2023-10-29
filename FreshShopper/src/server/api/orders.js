@@ -13,7 +13,8 @@ const {
     getAllOrders,
     getOrderById,
     getOrdersByUserId,
-    updateOrder
+    updateOrder,
+    deleteOrder
 } = require("../db/orders")
 
 // ---- GET ALL ORDERS ---- //
@@ -86,6 +87,19 @@ ordersRouter.patch("/:id", requireUser, async (req, res) => {
         res.send(updatedOrder)
     } catch (error) {
         console.error(chalk.red("Error updating order API: ", error))
+    }
+})
+
+// ---- DELETE EXISTING ORDER ---- //
+// /api/orders/:id
+ordersRouter.delete("/:id", requireUser, async (req, res) => {
+    const { id } = req.params
+    try {
+        const deletedOrder = await deleteOrder(id)
+        res.send(deletedOrder)
+    } catch (error) {
+        console.error(chalk.red("Error deleting order with API: ", error))
+        throw error
     }
 })
 

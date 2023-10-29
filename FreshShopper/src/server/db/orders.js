@@ -78,11 +78,25 @@ const updateOrder = async (id, fields = {}) => {
     }
 }
 
+const deleteOrder = async (id) => {
+    try {
+        const { rows: [ order ] } = await db.query(`
+        DELETE
+        FROM orders
+        WHERE id = $1
+        `, [id])
+        return order
+    } catch (error) {
+        console.error(chalk.red("Error deleting order from DB: ", error))
+        throw error
+    }
+}
 
 module.exports = {
     createOrder,
     getAllOrders,
     getOrderById,
     getOrdersByUserId,
-    updateOrder
+    updateOrder,
+    deleteOrder
 }
