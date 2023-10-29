@@ -2,13 +2,13 @@ const db = require("./client")
 const chalk = require("chalk")
 
 
-const createOrder = async( { user_id, fulfilled } ) => {
+const createOrder = async( { user_id } ) => {
     try {
         const { rows: [ order ] } = await db.query(`
-        INSERT INTO orders (user_id, fulfilled)
-        VALUES($1, $2)
+        INSERT INTO orders (user_id)
+        VALUES($1)
         RETURNING *
-        `, [user_id, fulfilled])
+        `, [user_id])
         return order
     } catch (error) {
         console.error(chalk.red("Error creating order: "), error)
@@ -53,10 +53,50 @@ const getOrdersByUserId = async (userId) => {
     }
 }
 
+const updateOrder = async (id, fields = {}) => {
+    const setString = Object.keys(fields).map(
+        (key, index) => `"${key}"=$${index + 1}`
+    ).join(', ');
+
+    console.log(chalk.yellow("setString: ", setString))
+
+    // return early if this is called without fields
+    if (setString.length === 0) {
+        return;
+    }
+
+    try {
+        const { rows: [order] } = await db.query(`
+        UPDATE orders
+        SET ${ setString }
+        WHERE id=${ id }
+        RETURNING *;
+        `, Object.values(fields));
+        return order;
+    } catch (error) {
+        throw error;
+    }
+}
+
+const deleteOrder = async (id) => {
+    try {
+        const { rows: [ order ] } = await db.query(`
+        DELETE
+        FROM orders
+        WHERE id = $1
+        `, [id])
+        return order
+    } catch (error) {
+        console.error(chalk.red("Error deleting order from DB: ", error))
+        throw error
+    }
+}
 
 module.exports = {
     createOrder,
     getAllOrders,
     getOrderById,
-    getOrdersByUserId
+    getOrdersByUserId,
+    updateOrder,
+    deleteOrder
 }

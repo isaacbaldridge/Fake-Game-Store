@@ -12,7 +12,9 @@ const {
     createOrder,
     getAllOrders,
     getOrderById,
-    getOrdersByUserId
+    getOrdersByUserId,
+    updateOrder,
+    deleteOrder
 } = require("../db/orders")
 
 // ---- GET ALL ORDERS ---- //
@@ -57,14 +59,46 @@ ordersRouter.get("/user/:id", async (req, res) => {
 // ---- CREATE NEW ORDER ---- //
 // /api/orders
 ordersRouter.post("/", requireUser, async (req, res) => {
-    const user_id = req.user.id
-    // const { user_id, fulfilled } = req.body
+    const orderData = {};
     try {
-        const newOrder = await createOrder( { user_id } )
+        orderData.user_id = req.user.id;
+        
+        const newOrder = await createOrder(orderData)
         res.send(newOrder)
 
     } catch (error) {
         console.error(chalk.red("Error POSTING new order: "), error)
+        throw error
+    }
+})
+
+// ---- UPDATE EXISTING ORDER ---- //
+// /api/orders/:id
+ordersRouter.patch("/:id", requireUser, async (req, res) => {
+    const { id } = req.params
+    const { fulfilled } = req.body
+    const updateFields = {}
+    if (fulfilled) {
+        updateFields.fulfilled = fulfilled
+    }
+
+    try {
+        const updatedOrder = await updateOrder(id, updateFields)
+        res.send(updatedOrder)
+    } catch (error) {
+        console.error(chalk.red("Error updating order API: ", error))
+    }
+})
+
+// ---- DELETE EXISTING ORDER ---- //
+// /api/orders/:id
+ordersRouter.delete("/:id", requireUser, async (req, res) => {
+    const { id } = req.params
+    try {
+        const deletedOrder = await deleteOrder(id)
+        res.send(deletedOrder)
+    } catch (error) {
+        console.error(chalk.red("Error deleting order with API: ", error))
         throw error
     }
 })

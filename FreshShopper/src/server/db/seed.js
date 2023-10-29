@@ -55,7 +55,7 @@ const createTables = async () => {
         CREATE TABLE orders (
             id SERIAL PRIMARY KEY,
             user_id INTEGER REFERENCES users(id),
-            fulfilled BOOLEAN
+            fulfilled BOOLEAN NOT NULL DEFAULT FALSE
         )`)
 
         await db.query(`
