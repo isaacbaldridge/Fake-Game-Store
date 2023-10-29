@@ -12,7 +12,8 @@ const {
     createOrder,
     getAllOrders,
     getOrderById,
-    getOrdersByUserId
+    getOrdersByUserId,
+    updateOrder
 } = require("../db/orders")
 
 // ---- GET ALL ORDERS ---- //
@@ -67,6 +68,24 @@ ordersRouter.post("/", requireUser, async (req, res) => {
     } catch (error) {
         console.error(chalk.red("Error POSTING new order: "), error)
         throw error
+    }
+})
+
+// ---- UPDATE EXISTING ORDER ---- //
+// /api/orders/:id
+ordersRouter.patch("/:id", requireUser, async (req, res) => {
+    const { id } = req.params
+    const { fulfilled } = req.body
+    const updateFields = {}
+    if (fulfilled) {
+        updateFields.fulfilled = fulfilled
+    }
+
+    try {
+        const updatedOrder = await updateOrder(id, updateFields)
+        res.send(updatedOrder)
+    } catch (error) {
+        console.error(chalk.red("Error updating order API: ", error))
     }
 })
 

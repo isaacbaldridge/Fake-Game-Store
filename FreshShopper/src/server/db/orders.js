@@ -53,10 +53,36 @@ const getOrdersByUserId = async (userId) => {
     }
 }
 
+const updateOrder = async (id, fields = {}) => {
+    const setString = Object.keys(fields).map(
+        (key, index) => `"${key}"=$${index + 1}`
+    ).join(', ');
+
+    console.log(chalk.yellow("setString: ", setString))
+
+    // return early if this is called without fields
+    if (setString.length === 0) {
+        return;
+    }
+
+    try {
+        const { rows: [order] } = await db.query(`
+        UPDATE orders
+        SET ${ setString }
+        WHERE id=${ id }
+        RETURNING *;
+        `, Object.values(fields));
+        return order;
+    } catch (error) {
+        throw error;
+    }
+}
+
 
 module.exports = {
     createOrder,
     getAllOrders,
     getOrderById,
-    getOrdersByUserId
+    getOrdersByUserId,
+    updateOrder
 }
