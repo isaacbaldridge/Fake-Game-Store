@@ -61,7 +61,8 @@ usersRouter.post("/register", async (req, res, next) => {
             });
             res.send( { 
                 message: "Register successful!",
-                token
+                token,
+                user
              } )
         }
 
@@ -91,7 +92,8 @@ usersRouter.post("/login", async (req, res, next) => {
 
             res.send({
                 message: "Login Successful!",
-                token
+                token,
+                user
             })
         }
 
