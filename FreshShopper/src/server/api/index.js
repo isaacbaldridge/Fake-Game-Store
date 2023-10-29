@@ -23,18 +23,14 @@ apiRouter.use(async (req, res, next) => {
     try {
       console.log("token: ", token)
       console.log("JWT secret: ", JWT_SECRET)
-      const { user } = jwt.verify(token, JWT_SECRET);
-      // console.log("User Info: ", user)
+      const  user = jwt.verify(token, JWT_SECRET);
       // TODO - Call 'jwt.verify()' to see if the token is valid. If it is, use it to get the user's 'id'. Look up the user with their 'id' and set 'req.user'
 
       if (user.id) {
         req.user = await getUserById(user.id);
         next();
       } 
-      // else if (!id) {
-        
-      //   console.log(chalk.cyan("Just Testing!"))
-      // }
+
 
 else {
   next({

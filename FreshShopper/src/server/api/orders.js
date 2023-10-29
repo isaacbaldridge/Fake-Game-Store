@@ -57,12 +57,9 @@ ordersRouter.get("/user/:id", async (req, res) => {
 // ---- CREATE NEW ORDER ---- //
 // /api/orders
 ordersRouter.post("/", requireUser, async (req, res) => {
-    // const { fulfilled} = req.body;
     const orderData = {};
-    console.log(req.user)
     try {
         orderData.user_id = req.user.id;
-        // orderData.fulfilled = fulfilled;
         
         const newOrder = await createOrder(orderData)
         res.send(newOrder)
